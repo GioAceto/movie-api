@@ -1,13 +1,17 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const { getAllMovies } = require('./controllers/contMovies')
-const port = 1400
+const { getAllMovies, getMoviesByInput } = require('./controllers/cont-movies')
+const PORT = 1400
 
 const app = express()
 
 app.get('/movies', getAllMovies)
 
+app.get('/movies/:result', getMoviesByInput)
 
-app.listen(port, () => {
-  console.log(`Listening on http://localhost:${port}/movies...`) // eslint-disable-line no-console
+
+
+
+app.listen(PORT, () => {
+  console.log(`Listening on http://localhost:${PORT}/movies...`) // eslint-disable-line no-console
 })
