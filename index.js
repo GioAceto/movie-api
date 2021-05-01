@@ -11,9 +11,6 @@ app.get('/movies/:result', getMoviesByInput)
 
 app.post('/movies', bodyParser.json(), addNewMovie)
 
-
-
-
 app.listen(PORT, () => {
   console.log(`Listening on http://localhost:${PORT}/movies...`) // eslint-disable-line no-console
 })

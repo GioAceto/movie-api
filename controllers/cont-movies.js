@@ -17,8 +17,18 @@ const getMoviesByInput = (req, res) => {
   return res.send(foundMovie)
 }
 
-const addNewMovie = () => {
+const addNewMovie = (req, res) => {
+  const { title, directors, releaseDate, rating, runTime, genres } = req.body
 
+  if (!title || !directors || !releaseDate || !rating || !runTime || !genres) {
+    res.status(400).send('Must contain all inputs')
+  } else {
+    const newMovie = { title, directors, releaseDate, rating, runTime, genres }
+
+    movies.push(newMovie)
+
+    return res.send(newMovie)
+  }
 }
 
 module.exports = { getAllMovies, getMoviesByInput, addNewMovie }
