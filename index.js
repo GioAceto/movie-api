@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const { getAllMovies, getMoviesByInput } = require('./controllers/cont-movies')
+const { getAllMovies, getMoviesByInput, addNewMovie } = require('./controllers/cont-movies')
 const PORT = 1400
 
 const app = express()
@@ -8,6 +8,8 @@ const app = express()
 app.get('/movies', getAllMovies)
 
 app.get('/movies/:result', getMoviesByInput)
+
+app.post('/movies', bodyParser.json(), addNewMovie)
 
 
 

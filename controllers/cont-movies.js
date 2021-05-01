@@ -17,4 +17,8 @@ const getMoviesByInput = (req, res) => {
   return res.send(foundMovie)
 }
 
-module.exports = { getAllMovies, getMoviesByInput }
+const addNewMovie = () => {
+
+}
+
+module.exports = { getAllMovies, getMoviesByInput, addNewMovie }
