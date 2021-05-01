@@ -1,12 +1,11 @@
 const movies = require('../movies')
 
-const getAllMovies = (request, response) => {
-  return response.send(movies)
+const getAllMovies = (req, res) => {
+  return res.send(movies)
 }
 
-const getMoviesByInput = (request, response) => {
-  const { result } = request.params
-  console.log(result)
+const getMoviesByInput = (req, res) => {
+  const { result } = req.params
 
   const foundMovie = movies.filter((movie) => {
     let byTitle = movie.title.toLowerCase().includes(result)
@@ -15,7 +14,7 @@ const getMoviesByInput = (request, response) => {
     return byTitle || byDirector
   })
 
-  return response.send(foundMovie)
+  return res.send(foundMovie)
 }
 
 module.exports = { getAllMovies, getMoviesByInput }
